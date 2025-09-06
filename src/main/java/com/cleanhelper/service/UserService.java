@@ -15,18 +15,14 @@ import java.util.stream.Collectors;
 @Service
 public class UserService {
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
-
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-
-    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
 
     }
+
+    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
 
     public List<UserDTO> findAll() {
         return userRepository.findAll().stream().map(this::toDTO).collect(Collectors.toList());
