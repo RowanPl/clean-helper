@@ -1,6 +1,8 @@
 package com.cleanhelper.controller;
 
 import com.cleanhelper.dto.TaskDTO;
+import com.cleanhelper.dto.TaskInputDTO;
+
 
 import com.cleanhelper.dto.TaskInputDTO;
 
@@ -41,5 +43,7 @@ public class TaskController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         taskService.delete(id);
+
+    }
 
 }

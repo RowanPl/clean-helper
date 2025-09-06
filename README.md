@@ -8,6 +8,10 @@ A self-hosted household planner that tracks the realistic effort of chores. The 
 - Per-user weekly energy budget that adapts over time.
 - Task energy learning using recent history (median or EWMA).
 - End-of-week reports highlighting over/under estimates.
+
+- Session-based authentication with Spring Security.
+- Calendar API endpoint to query tasks by date range.
+
 - Spring Boot + SQLite backend; React frontend (planned).
 
 ## Building

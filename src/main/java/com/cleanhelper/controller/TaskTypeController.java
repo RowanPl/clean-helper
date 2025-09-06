@@ -4,6 +4,9 @@ import com.cleanhelper.dto.TaskTypeDTO;
 
 import com.cleanhelper.dto.TaskTypeInputDTO;
 
+
+import com.cleanhelper.dto.TaskTypeInputDTO;
+
 import com.cleanhelper.service.TaskTypeService;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +44,5 @@ public class TaskTypeController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         taskTypeService.delete(id);
-
     }
 }

@@ -2,6 +2,8 @@ package com.cleanhelper.controller;
 
 import com.cleanhelper.dto.TaskCompletionDTO;
 
+
+
 import com.cleanhelper.dto.TaskCompletionInputDTO;
 import com.cleanhelper.service.TaskCompletionService;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +12,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/task-completions")
+public class TaskCompletionController {
+
+
 
     private final TaskCompletionService completionService;
 
     public TaskCompletionController(TaskCompletionService completionService) {
         this.completionService = completionService;
+}
+
+
 
     @GetMapping
     public List<TaskCompletionDTO> all() {
@@ -42,5 +50,4 @@ import java.util.List;
         completionService.delete(id);
     }
 
-  
 }

@@ -5,6 +5,7 @@ import com.cleanhelper.dto.UserInputDTO;
 import com.cleanhelper.model.User;
 import com.cleanhelper.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +15,17 @@ import java.util.stream.Collectors;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
+
     }
 
     public List<UserDTO> findAll() {
@@ -62,4 +70,8 @@ public class UserService {
         dto.setWeeklyEnergyCap(user.getWeeklyEnergyCap());
         return dto;
     }
+
 }
+
+}
+

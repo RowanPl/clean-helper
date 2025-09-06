@@ -11,6 +11,8 @@ import com.cleanhelper.repository.TaskTypeRepository;
 import com.cleanhelper.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -34,6 +36,12 @@ public class TaskService {
 
     public TaskDTO findById(Long id) {
         return taskRepository.findById(id).map(this::toDTO).orElse(null);
+    }
+
+
+    public List<TaskDTO> findByDateRange(LocalDateTime start, LocalDateTime end) {
+        return taskRepository.findByStartTimeBetween(start, end)
+                .stream().map(this::toDTO).collect(Collectors.toList());
     }
 
     public TaskDTO create(TaskInputDTO dto) {
@@ -93,4 +101,5 @@ public class TaskService {
         }
         return dto;
     }
+}
 }

@@ -5,6 +5,10 @@ import com.cleanhelper.dto.EnergyProfileDTO;
 import com.cleanhelper.dto.EnergyProfileInputDTO;
 
 
+import com.cleanhelper.dto.EnergyProfileInputDTO;
+
+
+
 import com.cleanhelper.service.EnergyProfileService;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,4 +46,7 @@ public class EnergyProfileController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         energyProfileService.delete(id);
+
+    }
+
 }
