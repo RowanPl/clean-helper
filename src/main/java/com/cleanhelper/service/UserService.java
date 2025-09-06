@@ -66,8 +66,5 @@ public class UserService {
         dto.setWeeklyEnergyCap(user.getWeeklyEnergyCap());
         return dto;
     }
-
-}
-
 }
 
