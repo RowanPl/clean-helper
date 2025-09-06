@@ -21,3 +21,11 @@ mvn test
 ```
 
 This will compile the Spring Boot backend and run the test suite (if present).
+
+## Google OAuth Setup
+
+To enable Google Calendar integration the application uses OAuth 2.0.
+Create an OAuth consent screen and a desktop OAuth client ID in the
+[Google Cloud Console](https://console.cloud.google.com/). Download the
+client credentials JSON and point the application to it via the
+`GOOGLE_CREDENTIALS_FILE` environment variable.
