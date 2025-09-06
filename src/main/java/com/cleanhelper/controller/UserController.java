@@ -1,6 +1,9 @@
 package com.cleanhelper.controller;
 
 import com.cleanhelper.dto.UserDTO;
+
+import com.cleanhelper.dto.UserInputDTO;
+
 import com.cleanhelper.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +29,18 @@ public class UserController {
     }
 
     @PostMapping
-    public UserDTO create(@RequestBody UserDTO dto) {
-        return userService.save(dto);
+
+    public UserDTO create(@RequestBody UserInputDTO dto) {
+        return userService.create(dto);
+    }
+
+    @PutMapping("/{id}")
+    public UserDTO update(@PathVariable Long id, @RequestBody UserInputDTO dto) {
+        return userService.update(id, dto);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        userService.delete(id);
     }
 }

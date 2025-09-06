@@ -1,6 +1,9 @@
 package com.cleanhelper.controller;
 
 import com.cleanhelper.dto.TaskTypeDTO;
+
+import com.cleanhelper.dto.TaskTypeInputDTO;
+
 import com.cleanhelper.service.TaskTypeService;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +23,24 @@ public class TaskTypeController {
         return taskTypeService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public TaskTypeDTO get(@PathVariable Long id) {
+        return taskTypeService.findById(id);
+    }
+
     @PostMapping
-    public TaskTypeDTO create(@RequestBody TaskTypeDTO dto) {
-        return taskTypeService.save(dto);
+    public TaskTypeDTO create(@RequestBody TaskTypeInputDTO dto) {
+        return taskTypeService.create(dto);
+    }
+
+    @PutMapping("/{id}")
+    public TaskTypeDTO update(@PathVariable Long id, @RequestBody TaskTypeInputDTO dto) {
+        return taskTypeService.update(id, dto);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        taskTypeService.delete(id);
+
     }
 }
